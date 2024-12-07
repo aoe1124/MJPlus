@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+    }
+    .section {
+      margin-bottom: 15px;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    #presetList {
+      margin-bottom: 10px;
+    }
+    .preset-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="section">
+    <div class="section-title">预设句子</div>
+    <div id="presetList"></div>
+    <input type="text" id="newPreset" placeholder="输入新的预设句子">
+    <button id="addPreset">添加</button>
+  </div>
+  
+  <div class="section">
+    <div class="section-title">图片比例</div>
+    <select id="aspectRatio">
+      <option value="3:4">3:4</option>
+      <option value="1:1">1:1</option>
+      <option value="4:3">4:3</option>
+      <option value="16:9">16:9</option>
+    </select>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html> 

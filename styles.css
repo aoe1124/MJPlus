@@ -1,0 +1,38 @@
+.mjplus-optimized {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mjplus-label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+}
+
+.mjplus-content {
+  margin-bottom: 12px;
+  word-break: break-all;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.mjplus-copy {
+  padding: 6px 16px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.mjplus-copy:hover {
+  background: #45a049;
+} 
