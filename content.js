@@ -18,10 +18,7 @@ function optimizePrompt(originalPrompt, settings) {
   }
   
   // 2. 删除不需要的参数
-  settings.removeParams.forEach(param => {
-    const regex = new RegExp(`${param}\\s+[\\w.:]+\\s*`, 'g');
-    optimizedPrompt = optimizedPrompt.replace(regex, '');
-  });
+  optimizedPrompt = removeParameters(optimizedPrompt);
   
   // 3. 调整图片比例
   const aspectRegex = /--ar\s+[\d.:]+/g;
@@ -180,3 +177,18 @@ document.addEventListener('DOMContentLoaded', debouncedFindPrompt);
 // 为了确保动态加载的页面上也能工作，添加额外的触发点
 window.addEventListener('load', debouncedFindPrompt);
 setTimeout(debouncedFindPrompt, 2000); // 2秒后再次尝试 
+
+// 在处理提示词的函数中添加对 --profile 参数的处理
+function removeParameters(prompt) {
+    // 已有的参数处理逻辑
+    prompt = prompt.replace(/--chaos\s+\d*\s*/g, '');
+    prompt = prompt.replace(/--stylize\s+\d*\s*/g, '');
+    prompt = prompt.replace(/--personalize\s+\d*\s*/g, '');
+    prompt = prompt.replace(/--v\s+\d*\s*/g, '');
+    prompt = prompt.replace(/--sref\s+\d*\s*/g, '');
+    
+    // 修改: 删除 --profile 参数，支持字母数字组合的参数值
+    prompt = prompt.replace(/--profile\s+[\w\d]+\s*/g, '');
+    
+    return prompt.trim();
+} 

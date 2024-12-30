@@ -8,6 +8,26 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// 存储默认设置
+chrome.runtime.onInstalled.addListener(() => {
+    chrome.storage.sync.get('parameterSettings', (data) => {
+        if (!data.parameterSettings) {
+            chrome.storage.sync.set({
+                parameterSettings: {
+                    removeParams: [
+                        'chaos',
+                        'stylize',
+                        'personalize',
+                        'v',
+                        'sref',
+                        'profile'  // 新增profile参数
+                    ]
+                }
+            });
+        }
+    });
+});
+
 // 处理来自content script的消息
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.type === "getSettings") {
